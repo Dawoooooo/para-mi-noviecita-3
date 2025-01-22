@@ -3,9 +3,7 @@ html, body {
   height: 100%; /* Asegura que el contenedor tenga una altura total */
   margin: 0;
   overflow-y: auto; /* Muestra el scroll vertical cuando el contenido excede */
-  width: 67%; /* Limita la página al 67% del ancho */
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%; /* Ajustamos para que ocupe todo el ancho */
 }
 
 * {
@@ -38,18 +36,21 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 1rem; /* Para evitar que el contenido se quede pegado a los bordes */
 }
 
 .container-letter {
   position: relative;
+  width: 100%; /* Asegura que ocupe todo el espacio disponible */
+  max-width: 800px; /* Limita el ancho máximo */
 }
 
 .cover {
   position: absolute;
-  border-left: 300px solid transparent;
-  border-right: 300px solid transparent;
-  border-top: 200px solid #fe3334;
-  border-bottom: 200px solid transparent;
+  border-left: 15vw solid transparent;
+  border-right: 15vw solid transparent;
+  border-top: 15vw solid #fe3334;
+  border-bottom: 15vw solid transparent;
   transition: transform .75s;
   transform-origin: top;
   z-index: 2; /* Aumentamos el z-index de cover para que esté encima */
@@ -58,16 +59,16 @@ main {
 .paper {
   font-family: 'Dancing Script', cursive; 
   position: absolute;
-  padding: 2.5rem;
-  line-height: 2rem; /* Espaciado más amplio entre líneas para facilitar la lectura */
-  font-size: 1.2rem; /* Aumentar el tamaño de la fuente para hacerlo más legible */
+  padding: 2rem;
+  line-height: 1.8rem; /* Ajustar espaciado entre líneas */
+  font-size: 1.1rem; /* Ajustar tamaño de la fuente para pantallas pequeñas */
   color: #6b2a2a; /* Color cálido para el texto */
   text-align: justify; /* Alineación justificada para un flujo ordenado */
   right: 5px;
   z-index: -1; /* Mantener este valor igual para no afectar a otros elementos */
   background: white;
-  width: 580px;
-  height: 370px;
+  width: 80vw; /* Usamos un porcentaje para que ocupe un 80% del ancho */
+  height: 60vh; /* El alto se ajusta al 60% de la altura de la pantalla */
   overflow-y: auto; /* Permite el desplazamiento vertical */
   transition: all .75s;
   cursor: grab; /* Cambiar cursor para indicar que se puede arrastrar */
@@ -76,9 +77,28 @@ main {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
 }
 
+/* Añadir un par de reglas para que la animación sea más fluida en dispositivos móviles */
+@media (max-width: 768px) {
+  .cover {
+    border-left: 10vw solid transparent;
+    border-right: 10vw solid transparent;
+    border-top: 12vw solid #fe3334;
+    border-bottom: 12vw solid transparent;
+  }
+
+  .paper {
+    font-size: 1rem; /* Reducir el tamaño de la fuente para pantallas pequeñas */
+    width: 90vw; /* Ajustar el ancho para pantallas más pequeñas */
+    height: 50vh; /* Ajustar el alto de la carta */
+    padding: 1.5rem; /* Ajustar el padding */
+  }
+
+  .heart {
+    font-size: 2.5rem; /* Ajustar el tamaño del corazón */
+  }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
 
 .letter {
   border-left: 300px solid #ff989e;
@@ -89,7 +109,7 @@ main {
 
 .options {
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
 }
 
 .options button {
