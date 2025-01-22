@@ -1,0 +1,160 @@
+/* Reset CSS */
+html, body {
+  height: 100%; /* Asegura que el contenedor tenga una altura total */
+  margin: 0;
+  overflow-y: auto; /* Muestra el scroll vertical cuando el contenido excede */
+  width: 67%; /* Limita la página al 67% del ancho */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  background-color: #fad7df;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container-letter {
+  position: relative;
+}
+
+.cover {
+  position: absolute;
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  border-top: 200px solid #fe3334;
+  border-bottom: 200px solid transparent;
+  transition: transform .75s;
+  transform-origin: top;
+  z-index: 2; /* Aumentamos el z-index de cover para que esté encima */
+}
+
+.paper {
+  font-family: 'Dancing Script', cursive; 
+  position: absolute;
+  padding: 2.5rem;
+  line-height: 2rem; /* Espaciado más amplio entre líneas para facilitar la lectura */
+  font-size: 1.2rem; /* Aumentar el tamaño de la fuente para hacerlo más legible */
+  color: #6b2a2a; /* Color cálido para el texto */
+  text-align: justify; /* Alineación justificada para un flujo ordenado */
+  right: 5px;
+  z-index: -1; /* Mantener este valor igual para no afectar a otros elementos */
+  background: white;
+  width: 580px;
+  height: 370px;
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  transition: all .75s;
+  cursor: grab; /* Cambiar cursor para indicar que se puede arrastrar */
+  pointer-events: auto; /* Permite la interacción en el contenido de .paper */
+  border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+.letter {
+  border-left: 300px solid #ff989e;
+  border-right: 300px solid #ff989e;
+  border-top: 200px solid transparent;
+  border-bottom: 200px solid #ff858a;
+}
+
+.options {
+  display: flex;
+  gap: 5rem;
+}
+
+.options button {
+  color: #ff3234;
+  font-weight: 600;
+  border-radius: 3px;
+  background: #fad7df;
+  padding: 0.5rem 1rem;
+  border: 1px solid #fe3334;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background: #ff989e;
+  color: white;
+}
+
+.open-cover {
+  transform: rotatex(180deg);
+}
+
+.open-paper {
+  animation: openPaper 1s forwards;
+}
+
+@keyframes openPaper {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -335px; /* Aumentar el desplazamiento para que suba más */
+  }
+}
+
+.close-paper {
+  animation: closePaper .5s forwards;
+}
+
+@keyframes closePaper {
+  0% {
+    top: -120px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.heart {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 46.5%;
+  margin: auto;
+  font-size: 3rem;
+  color: #fe3334;
+  animation: crecer 1s forwards;
+}
+
+@keyframes crecer {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 3;
+    opacity: 0;
+  }
+}
