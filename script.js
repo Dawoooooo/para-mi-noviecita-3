@@ -6,23 +6,25 @@ btnCloseElement.disabled = true;
 btnOpenElement.addEventListener('click', () => {
   btnOpenElement.disabled = true;
   btnCloseElement.disabled = false;
+
   const coverElement = document.querySelector('.cover');
+  const paperElement = document.querySelector('.paper');
+  const heartElement = document.querySelector('.heart');
+
+  // Abrir la carta (rotar la tapa)
   coverElement.classList.add('open-cover');
 
   setTimeout(() => {
-    coverElement.style.zIndex = -1; // Aquí no se afecta a .paper
+    coverElement.style.zIndex = -1; // La tapa pasa al fondo
 
-    const paperElement = document.querySelector('.paper');
+    // Abrir el papel (subir la carta)
     paperElement.classList.remove('close-paper');
     paperElement.classList.add('open-paper');
-    
-    // Cambiar el z-index temporalmente para permitir el scroll
-    paperElement.style.zIndex = 1; 
+    paperElement.style.zIndex = 1; // Hacer scroll en el papel
 
-    // animación del corazón
-    const heartElement = document.querySelector('.heart');
+    // Mostrar el corazón (animación)
     heartElement.style.display = 'block';
-  }, 500);
+  }, 500); // Tiempo sincronizado con la animación de la tapa
 });
 
 btnCloseElement.addEventListener('click', () => {
@@ -31,19 +33,21 @@ btnCloseElement.addEventListener('click', () => {
 
   const coverElement = document.querySelector('.cover');
   const paperElement = document.querySelector('.paper');
+  const heartElement = document.querySelector('.heart');
 
-  // Cambiar el z-index antes de la animación de cierre
-  paperElement.style.zIndex = -1; // Cambio inmediato del z-index
-
+  // Cerrar el papel (bajar la carta)
   paperElement.classList.remove('open-paper');
   paperElement.classList.add('close-paper');
 
+  // Retrasar el cambio del z-index para completar la animación
   setTimeout(() => {
-    coverElement.style.zIndex = 0; // Aquí no se afecta a .paper
+    paperElement.style.zIndex = -1; // Ocultar el papel debajo de la tapa
+
+    // Regresar la tapa al frente
+    coverElement.style.zIndex = 2;
     coverElement.classList.remove('open-cover');
 
-    // animación del corazón
-    const heartElement = document.querySelector('.heart');
+    // Ocultar el corazón
     heartElement.style.display = 'none';
-  }, 500);
+  }, 500); // Tiempo sincronizado con la animación del papel
 });
