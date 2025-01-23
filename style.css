@@ -184,7 +184,7 @@ main {
 
   .paper {
     width: 90%; /* Asegura que el ancho sea relativo al contenedor */
-    height: 100px; /* Altura inicial de 100px para que esté parcialmente visible */
+    height: 250px; /* Altura inicial de 100px para que esté parcialmente visible */
     padding: 1rem; /* Ajusta el padding para móviles */
     font-size: 0.9rem; /* Tamaño de fuente adaptado a móviles */
     line-height: 1.4rem; /* Ajusta el espaciado entre líneas */
