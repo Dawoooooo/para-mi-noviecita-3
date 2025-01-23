@@ -183,17 +183,20 @@ main {
   }
 
   .paper {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible dentro de la carta */
-    height: auto; /* Deja que la altura se ajuste al contenido */
-    padding: 1.5rem; /* Reduce el padding para móviles */
-    font-size: 1rem; /* Ajusta el tamaño de la fuente */
-    line-height: 1.6rem; /* Ajusta el espaciado entre líneas */
-    max-width: 100%; /* Asegura que no exceda el ancho de la carta */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    position: absolute; /* Mantiene el paper dentro de la carta */
-    top: 0; /* Alinea el paper al inicio de la carta */
-    left: 0; /* Alinea el paper a la izquierda */
-    z-index: -1; /* Mantiene el paper detrás de la tapa */
+    width: 90%; /* Asegura que el ancho sea relativo al contenedor */
+    height: 100px; /* Altura inicial de 100px para que esté parcialmente visible */
+    padding: 1rem; /* Ajusta el padding para móviles */
+    font-size: 0.9rem; /* Tamaño de fuente adaptado a móviles */
+    line-height: 1.4rem; /* Ajusta el espaciado entre líneas */
+    max-width: 100%; /* Asegura que no exceda el contenedor */
+    overflow: hidden; /* Esconde cualquier contenido que se salga de los límites */
+    position: absolute; /* Mantiene el papel dentro de la carta */
+    top: 0; /* Alínea al inicio de la carta */
+    left: 0; /* Alínea a la izquierda */
+    z-index: -1; /* Mantiene el papel detrás de la tapa */
+    background: white; /* Asegura el color de fondo del papel */
+    border-radius: 5px; /* Suaviza los bordes para una mejor apariencia */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   }
 
   .options {
