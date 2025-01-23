@@ -183,12 +183,17 @@ main {
   }
 
   .paper {
-    width: 90%; /* Usa un ancho relativo para adaptarse mejor */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible dentro de la carta */
     height: auto; /* Deja que la altura se ajuste al contenido */
     padding: 1.5rem; /* Reduce el padding para móviles */
     font-size: 1rem; /* Ajusta el tamaño de la fuente */
     line-height: 1.6rem; /* Ajusta el espaciado entre líneas */
-    max-width: 95%; /* Asegura que no exceda el ancho de la pantalla */
+    max-width: 100%; /* Asegura que no exceda el ancho de la carta */
+    overflow: hidden; /* Esconde cualquier desbordamiento */
+    position: absolute; /* Mantiene el paper dentro de la carta */
+    top: 0; /* Alinea el paper al inicio de la carta */
+    left: 0; /* Alinea el paper a la izquierda */
+    z-index: -1; /* Mantiene el paper detrás de la tapa */
   }
 
   .options {
